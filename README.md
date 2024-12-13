@@ -1,10 +1,10 @@
 --[[
 
-discord.gg/9SsTBhKqRY
+discord.gg/hackerclub
 
 --]]
 
-if getgenv().cuppink then warn("XHUB PRO : Already executed!") return end
+if getgenv().cuppink then warn("CupPibk Hub : Already executed!") return end
 getgenv().cuppink = true
 
 if not game:IsLoaded() then
@@ -70,12 +70,12 @@ if DeviceType == "Mobile" then
 end
 
 local Window = Fluent:CreateWindow({
-    Title = game:GetService("MarketplaceService"):GetProductInfo(16732694052).Name .." | XHUB PRO - EDITION",
-    SubTitle = " (discord.gg/9SsTBhKqRY)",
+    Title = game:GetService("MarketplaceService"):GetProductInfo(16732694052).Name .." | CupPink - Premium",
+    SubTitle = " (discord.gg/cT34Cx4TGC)",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Dark",
+    Theme = "Rose",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
@@ -535,12 +535,11 @@ local function updateShadowCount()
     shadowCountLabel.Text = "Shadow Count: " .. count
 end
 
-
 -- // // // Tabs Gui // // // --
 
 local Tabs = { -- https://lucide.dev/icons/
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
-    Exclusives = Window:AddTab({ Title = "Excusive", Icon = "heart" }),
+    Exclusives = Window:AddTab({ Title = "Exclusives", Icon = "heart" }),
     Main = Window:AddTab({ Title = "Main", Icon = "list" }),
     Items = Window:AddTab({ Title = "Items", Icon = "box" }),
     Teleports = Window:AddTab({ Title = "Teleports", Icon = "map-pin" }),
@@ -552,8 +551,8 @@ local Options = Fluent.Options
 
 do
     Tabs.Home:AddButton({
-        Title = "CLICK COPY LINK DISCORD!",
-        Description = "Join to XHUB PRO OFFICIAL",
+        Title = "Copy Discord link",
+        Description = "Join our main discord!",
         Callback = function()
             setclipboard("https://discord.gg/9SsTBhKqRY")
         end
