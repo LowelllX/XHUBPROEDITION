@@ -4,7 +4,7 @@ discord.gg/hackerclub
 
 --]]
 
-if getgenv().cuppink then warn("CupPibk Hub : Already executed!") return end
+if getgenv().cuppink then warn("XHUB EDITION: Already executed!") return end
 getgenv().cuppink = true
 
 if not game:IsLoaded() then
@@ -59,7 +59,7 @@ if DeviceType == "Mobile" then
     TextButton.Size = UDim2.new(0, 45, 0, 45)
     TextButton.AutoButtonColor = false
     TextButton.Font = Enum.Font.SourceSans
-    TextButton.Text = "Open"
+    TextButton.Text = ""
     TextButton.TextColor3 = Color3.new(220, 125, 255)
     TextButton.TextSize = 20
 
@@ -70,12 +70,12 @@ if DeviceType == "Mobile" then
 end
 
 local Window = Fluent:CreateWindow({
-    Title = game:GetService("MarketplaceService"):GetProductInfo(16732694052).Name .." | CupPink - Premium",
-    SubTitle = " (discord.gg/cT34Cx4TGC)",
+    Title = game:GetService("MarketplaceService"):GetProductInfo(16732694052).Name .." | XHUB EDITION - GEN 0.1",
+    SubTitle = " (discord.gg/9SsTBhKqRY)",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Rose",
+    Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
@@ -125,7 +125,7 @@ local RunCount = false
 -- // // // Functions // // // --
 function ShowNotification(String)
     Fluent:Notify({
-        Title = "CupPink Hub",
+        Title = "XHUB LOADED",
         Content = String,
         Duration = 5
     })
@@ -534,6 +534,13 @@ local function updateShadowCount()
     local count = #workspace.Shadows:GetChildren()
     shadowCountLabel.Text = "Shadow Count: " .. count
 end
+
+spawn(function()
+    while true do
+        updateShadowCount()
+        task.wait(0.5)
+    end
+end)
 
 -- // // // Tabs Gui // // // --
 
