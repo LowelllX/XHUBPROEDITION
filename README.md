@@ -59,7 +59,7 @@ if DeviceType == "Mobile" then
     TextButton.Size = UDim2.new(0, 45, 0, 45)
     TextButton.AutoButtonColor = false
     TextButton.Font = Enum.Font.SourceSans
-    TextButton.Text = "XHUB PRO"
+    TextButton.Text = "Open"
     TextButton.TextColor3 = Color3.new(220, 125, 255)
     TextButton.TextSize = 20
 
@@ -535,10 +535,12 @@ local function updateShadowCount()
     shadowCountLabel.Text = "Shadow Count: " .. count
 end
 
+
 -- // // // Tabs Gui // // // --
 
 local Tabs = { -- https://lucide.dev/icons/
     Home = Window:AddTab({ Title = "Home", Icon = "home" }),
+    Exclusives = Window:AddTab({ Title = "Excusive", Icon = "heart" }),
     Main = Window:AddTab({ Title = "Main", Icon = "list" }),
     Items = Window:AddTab({ Title = "Items", Icon = "box" }),
     Teleports = Window:AddTab({ Title = "Teleports", Icon = "map-pin" }),
@@ -554,6 +556,72 @@ do
         Description = "Join to XHUB PRO OFFICIAL",
         Callback = function()
             setclipboard("https://discord.gg/9SsTBhKqRY")
+        end
+    })
+
+    -- // Exclusives Tab // --
+    local sectionExclus = Tabs.Exclusives:AddSection("Exclusives Features")
+    local CountShadows = Tabs.Exclusives:AddToggle("CountShadows", {Title = "Show Count Shadows", Default = false })
+    CountShadows:OnChanged(function()
+        local RequireRod = PlayerGui.hud.safezone.equipment.rods.scroll.safezone:FindFirstChild("Rod Of The Depths")
+        if not RequireRod then return ShowNotification("Requirement Rod Of The Depths") end
+        if Options.CountShadows.Value == true then
+            shadowCountLabel.Visible = true
+        else
+            shadowCountLabel.Visible = false
+        end
+    end)
+    local RodDupe = Tabs.Exclusives:AddToggle("RodDupe", {Title = "Rod Of The Depths Spam", Default = false })
+    RodDupe:OnChanged(function()
+        local RequireRod = PlayerGui.hud.safezone.equipment.rods.scroll.safezone:FindFirstChild("Rod Of The Depths")
+        if not RequireRod then return ShowNotification("Requirement Rod Of The Depths") end
+        while Options.RodDupe.Value do
+            local args1 = {[1] = "Flimsy Rod"}
+            game:GetService("ReplicatedStorage").events.equiprod:FireServer(unpack(args1))
+
+            local args2 = {[1] = "Rod Of The Depths"}
+            game:GetService("ReplicatedStorage").events.equiprod:FireServer(unpack(args2))
+            task.wait(RodDupeDelay)
+        end
+    end)
+    local RodDupe_Delay = Tabs.Exclusives:AddSlider("RodDupe_Delay", {
+        Title = "Rod Of The Depths Spam Delay",
+        Description = "",
+        Default = 0.2,
+        Min = 0,
+        Max = 1,
+        Rounding = 1,
+        Callback = function(Value)
+            RodDupeDelay = Value
+        end
+    })
+    Tabs.Exclusives:AddButton({
+        Title = "Dupe Shadow",
+        Description = "",
+        Callback = function()
+            local RequireRod = PlayerGui.hud.safezone.equipment.rods.scroll.safezone:FindFirstChild("Rod Of The Depths")
+            if not RequireRod then return ShowNotification("Requirement Rod Of The Depths") end
+            for i,v in pairs(LocalPlayer.Backpack:GetChildren()) do 
+                if v:FindFirstChild("offer") then
+                    v.Parent = LocalPlayer.Character
+                end
+            end
+            task.wait(2)
+            for i,v in pairs(LocalPlayer.Character:GetChildren()) do 
+                if v:FindFirstChild("offer") then
+                    v.Parent = LocalPlayer.Backpack
+                end
+            end
+        end
+    })
+
+    Tabs.Exclusives:AddButton({
+        Title = "Destroy Shadows",
+        Description = "",
+        Callback = function()
+            for _,shadow in pairs(workspace.Shadows:GetChildren()) do
+    		    shadow:Destroy()
+		    end
         end
     })
 
