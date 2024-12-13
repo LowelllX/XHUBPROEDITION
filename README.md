@@ -711,10 +711,10 @@ do
     end)
 
     -- // Mode Tab // --
-    local section = Tabs.Main:AddSection("Mode Fishing")
+    local section = Tabs.Main:AddSection("Auto Mode")
     local autoCastMode = Tabs.Main:AddDropdown("autoCastMode", {
-        Title = "Auto Cast Mode",
-        Values = {"Legit", "Blatant"},
+        Title = "Auto Farm Mode",
+        Values = {"Blatant"},
         Multi = false,
         Default = CastMode,
     })
@@ -723,8 +723,8 @@ do
     end)
     local autoShakeMode = Tabs.Main:AddDropdown("autoShakeMode", {
         Title = "Auto Shake Mode",
-        Values = {"Navigation", "Mouse"},
-        Multi = false,
+        Values = {"Navigation"},
+        Multi = true,
         Default = ShakeMode,
     })
     autoShakeMode:OnChanged(function(Value)
@@ -732,8 +732,8 @@ do
     end)
     local autoReelMode = Tabs.Main:AddDropdown("autoReelMode", {
         Title = "Auto Reel Mode",
-        Values = {"Legit", "Blatant"},
-        Multi = false,
+        Values = {"Blatant"},
+        Multi = true,
         Default = ReelMode,
     })
     autoReelMode:OnChanged(function(Value)
