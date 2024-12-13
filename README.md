@@ -715,7 +715,7 @@ do
     local autoCastMode = Tabs.Main:AddDropdown("autoCastMode", {
          Title = "Auto Cast Mode",
         Values = {"Blatant"},
-        Multi = true,
+        Multi = false,
         Default = CastMode,
     })
     autoCastMode:OnChanged(function(Value)
@@ -724,7 +724,7 @@ do
     local autoShakeMode = Tabs.Main:AddDropdown("autoShakeMode", {
         Title = "Auto Shake Mode",
         Values = {"Navigation"},
-        Multi = true,
+        Multi = false,
         Default = ShakeMode,
     })
     autoShakeMode:OnChanged(function(Value)
@@ -733,7 +733,7 @@ do
     local autoReelMode = Tabs.Main:AddDropdown("autoReelMode", {
         Title = "Auto Reel Mode",
         Values = {"Blatant"},
-        Multi = true,
+        Multi = false,
         Default = ReelMode,
     })
     autoReelMode:OnChanged(function(Value)
@@ -1079,7 +1079,7 @@ end
 
 Window:SelectTab(1)
 Fluent:Notify({
-    Title = "CupPink",
+    Title = "XHUB",
     Content = "Executed!",
     Duration = 8
 })
