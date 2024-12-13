@@ -713,8 +713,8 @@ do
     -- // Mode Tab // --
     local section = Tabs.Main:AddSection("Auto Mode")
     local autoCastMode = Tabs.Main:AddDropdown("autoCastMode", {
-        Title = "Auto Cast Mode",
-        Values = {"Fast"},
+         Title = "Auto Cast Mode",
+        Values = {"Blatant"},
         Multi = true,
         Default = CastMode,
     })
@@ -723,7 +723,7 @@ do
     end)
     local autoShakeMode = Tabs.Main:AddDropdown("autoShakeMode", {
         Title = "Auto Shake Mode",
-        Values = {"Fast"},
+        Values = {"Navigation"},
         Multi = true,
         Default = ShakeMode,
     })
