@@ -633,7 +633,7 @@ do
 
     -- // Main Tab // --
     local section = Tabs.Main:AddSection("Auto Fishing")
-    local autoCast = Tabs.Main:AddToggle("autoCast", {Title = "Auto Cast", Default = false })
+    local autoCast = Tabs.Main:AddToggle("autoCast", {Title = "Auto Fishing", Default = false })
     autoCast:OnChanged(function()
         local RodName = ReplicatedStorage.playerstats[LocalPlayer.Name].Stats.rod.Value
         if Options.autoCast.Value == true then
@@ -663,7 +663,7 @@ do
                             local rod = LocalCharacter and LocalCharacter:FindFirstChildOfClass("Tool")
                             if rod and rod:FindFirstChild("values") and string.find(rod.Name, "Rod") then
                                 task.wait(0.5)
-                                local Random = math.random(90, 99)
+                                local Random = math.random(999, 1000)
                                 rod.events.cast:FireServer(Random)
                             end
                         end
@@ -713,7 +713,7 @@ do
     -- // Mode Tab // --
     local section = Tabs.Main:AddSection("Auto Mode")
     local autoCastMode = Tabs.Main:AddDropdown("autoCastMode", {
-        Title = "Auto Farm Mode",
+        Title = "Auto Cast Mode",
         Values = {"Fast"},
         Multi = true,
         Default = CastMode,
