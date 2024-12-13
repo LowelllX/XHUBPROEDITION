@@ -1079,7 +1079,7 @@ end
 
 Window:SelectTab(1)
 Fluent:Notify({
-    Title = "XHUB",
+    Title = "CupPink",
     Content = "Executed!",
     Duration = 8
 })
